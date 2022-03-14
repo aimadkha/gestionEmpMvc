@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Add user</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container">
+		<h1>Ajouter un utilisateur</h1>
+
+		<form th:action="@{/user/insert}" method="post" th:object="${user}"
+			class="container-fluid">
+			<div>
+				<label>Nom : </label> <input type="text" th:field="*{nom_user}"
+					class="form-control mb-2 col-4" />
+			</div>
+			<br>
+			<div>
+				<label>Prenom : </label> <input type="text"
+					th:field="*{prenom_user}" class="form-control mb-2 col-4" />
+			</div>
+			<br>
+			<div>
+				<label>Email : </label> <input type="text" th:field="*{email}"
+					class="form-control mb-2 col-4" />
+			</div>
+			<br>
+			<div>
+				<label>Password : </label> <input type="password"
+					th:field="*{password}" class="form-control mb-2 col-4" />
+			</div>
+			<br>
+			<div>
+				<div>
+					<label>Role : </label> <input type="radio" th:field="*{role}"
+						name="role" value="Admin" class="mb-2 col-4" /> <label
+						for="contactChoice3">Admin</label> <input type="radio"
+						th:field="*{role}" name="role" value="User" class="mb-2 col-4" />
+					<label for="contactChoice3">User</label>
+
+				</div>
+
+			</div>
+			<br>
+			<button type="submit" class="btn btn-success">Ajouter</button>
+		</form>
+	</div>
+</body>
+</html>
